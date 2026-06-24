@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VANYA | Luxury Indian Fashion — Premium Saree Store</title>
+    <meta name="description" content="Shop India's most exquisite handcrafted sarees online. Check availability, chat with seller, and experience luxury fashion.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="loading">
+
+<!-- ╔══════════════════════════════════════════╗
+     PRELOADER
+╚══════════════════════════════════════════╝ -->
+<div class="preloader" id="preloader">
+    <div class="preloader-content">
+        <span class="preloader-logo">VANYA</span>
+        <span class="preloader-tagline">Haute Couture</span>
+        <div class="preloader-track"><div class="preloader-fill" id="preloaderFill"></div></div>
+        <span class="preloader-pct" id="preloaderPct">0%</span>
+    </div>
+</div>
+
+<!-- Toast Notifications Container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress-bar" id="scrollProgressBar"></div>
+
+<!-- Custom Cursor -->
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-dot"  id="cursorDot"></div>
+
+<!-- ╔══════════════════════════════════════════╗
+     HEADER — Sticky, Search + Category Filters
+╚══════════════════════════════════════════╝ -->
+<header class="luxury-header" id="luxuryHeader">
+    <div class="header-main">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <a href="#" class="logo">VANYA</a>
+
+        <div class="header-icons">
+            <a href="#" aria-label="Wishlist" class="icon-btn" id="heartBtn" onclick="showHeartPopup(event)"><i class="fa-regular fa-heart" id="heartIcon"></i></a>
+            <a href="#contact" aria-label="Contact" class="icon-btn"><i class="fa-solid fa-phone"></i></a>
+            <a href="#" aria-label="Cart" class="icon-btn cart-icon">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="cart-badge" id="cartBadge">0</span>
+            </a>
+        </div>
+    </div>
+    <div class="header-nav" id="headerNav">
+        <nav class="nav-links">
+            <a href="#story"        class="nav-item">The Story</a>
+            <a href="#showcase"     class="nav-item">Collection</a>
+            <a href="#about"        class="nav-item">Artisans</a>
+            <a href="#testimonials" class="nav-item">Reviews</a>
+            <a href="#contact"      class="nav-item">Visit Us</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ╔══════════════════════════════════════════╗
+     1. HERO SECTION
+╚══════════════════════════════════════════╝ -->
+<section class="hero-section" id="hero">
+    <div class="hero-bg-wrapper">
+        <img src="assets/hero_saree.png" alt="Luxury Saree Model" class="hero-bg-image" id="heroBgImage">
+        <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content" id="heroContent">
+        <span class="hero-eyebrow">HAUTE COUTURE · EST. 2026</span>
+        <h1 class="hero-title">Elegance in<br><em class="hero-highlight">Every Thread</em></h1>
+        <p class="hero-description">Immerse yourself in a narrative of timeless silk, heritage weaving, and modern majesty. Each piece — a legacy.</p>
+        <div class="hero-actions">
+            <a href="#showcase" class="btn-hero-primary">Explore Collection</a>
+            <a href="#story"    class="btn-hero-secondary"><span>Scroll Story</span><i class="fa-solid fa-arrow-down"></i></a>
+        </div>
+    </div>
+    <div class="hero-scroll-hint">
+        <div class="scroll-line"><span class="scroll-dot"></span></div>
+        <span>Scroll</span>
+    </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗
+     2. SCROLL STORY SECTION
+╚══════════════════════════════════════════╝ -->
+<section class="scroll-story-container" id="story">
+    <div class="story-sticky-wrapper">
+        <div class="story-text-pane">
+            <div class="story-text-track">
+                <div class="story-text-step active" data-step="0">
+                    <span class="step-num">CHAPTER I</span>
+                    <h2 class="step-title">Tradition</h2>
+                    <p class="step-desc">Handcrafted crimson weaves representing generations of artistry. Every motif tells a story of royal lineage, hand-loomed to perfection in Varanasi.</p>
+                    <a href="#showcase" class="btn-minimal">Discover Crimson <i class="fa-solid fa-arrow-right-long"></i></a>
+                </div>
+                <div class="story-text-step" data-step="1">
+                    <span class="step-num">CHAPTER II</span>
+                    <h2 class="step-title">Grace</h2>
+                    <p class="step-desc">Deep maroon silk draping the modern woman in unmatched poise. An intersection of traditional patterns with a fluid, lightweight modern drape.</p>
+                    <a href="#showcase" class="btn-minimal">Discover Maroon <i class="fa-solid fa-arrow-right-long"></i></a>
+                </div>
+                <div class="story-text-step" data-step="2">
+                    <span class="step-num">CHAPTER III</span>
+                    <h2 class="step-title">Modern Royalty</h2>
+                    <p class="step-desc">Luminous gold tissue silk echoing the opulence of Indian architecture. A metallic glow designed to make a statement in contemporary celebrations.</p>
+                    <a href="#showcase" class="btn-minimal">Discover Gold <i class="fa-solid fa-arrow-right-long"></i></a>
+                </div>
+                <div class="story-text-step" data-step="3">
+                    <span class="step-num">CHAPTER IV</span>
+                    <h2 class="step-title">Timeless Beauty</h2>
+                    <p class="step-desc">Sleek black organza adorned with delicate hand-embroidered border detailing. A minimal yet bold statement of sheer luxury and elegance.</p>
+                    <a href="#showcase" class="btn-minimal">Discover Black <i class="fa-solid fa-arrow-right-long"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="story-image-pane">
+            <div class="image-frame-wrapper">
+                <img src="assets/scroll_red.png"    alt="Tradition Saree"       class="story-image active" data-step="0">
+                <img src="assets/scroll_maroon.png" alt="Grace Saree"           class="story-image"        data-step="1">
+                <img src="assets/scroll_gold.png"   alt="Modern Royalty Saree"  class="story-image"        data-step="2">
+                <img src="assets/scroll_black.png"  alt="Timeless Beauty Saree" class="story-image"        data-step="3">
+            </div>
+            <div class="image-border-decoration"></div>
+            <div class="luxury-seal">EST. 2026</div>
+            <div class="story-dots">
+                <div class="dot active" data-step="0"><span>I</span></div>
+                <div class="dot"        data-step="1"><span>II</span></div>
+                <div class="dot"        data-step="2"><span>III</span></div>
+                <div class="dot"        data-step="3"><span>IV</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗
+     3. PARALLAX HERITAGE SECTION
+╚══════════════════════════════════════════╝ -->
+<section class="parallax-section" id="parallax">
+    <div class="parallax-bg-wrapper">
+        <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1600" alt="Indian Palace" class="parallax-bg-image">
+        <div class="parallax-overlay"></div>
+    </div>
+    <div class="parallax-container">
+        <div class="parallax-card reveal-on-scroll">
+            <span class="card-subtitle">THE HERITAGE</span>
+            <h2 class="card-title">Crafting the Legacy</h2>
+            <p class="card-desc">Every weave takes weeks of design, mathematical precision on the loom, and the expertise of multi-generational artisans. We honor this process, restoring the status of the Indian saree on the world stage.</p>
+            <div class="gold-line"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗
+     4. PRODUCT GALLERY — With Availability & Chat
+╚══════════════════════════════════════════╝ -->
+<section class="product-showcase" id="showcase">
+    <div class="section-header">
+        <span class="subtitle">THE COLLECTION</span>
+        <h2 class="title">Handcrafted Masterpieces</h2>
+        <div class="header-divider"></div>
+    </div>
+    <div class="search-results-info" id="searchResultsInfo"></div>
+    <div class="product-grid" id="productGrid">
+
+        <div class="product-card reveal-on-scroll" data-category="saree" data-name="crimson banarasi" data-index="0">
+            <div class="product-image-container">
+                <img src="assets/product_crimson.png" alt="Crimson Banarasi" class="product-image" loading="lazy">
+                <div class="product-badge">Best Seller</div>
+                <div class="product-hover-overlay"><button class="btn-card-quick" data-product="0"><i class="fa-solid fa-eye"></i> Quick View</button></div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">Crimson Banarasi</h3>
+                <div class="product-price-row">
+                    <p class="product-price">Rs. 1,24,000</p>
+                    <div class="product-stars">★★★★★</div>
+                </div>
+                <span class="product-category-tag">Banarasi Silk · Saree</span>
+                <div class="product-action-row">
+                    <button class="btn-check-avail" onclick="checkAvailability('Crimson Banarasi')"><i class="fa-solid fa-circle-check"></i> Check Availability</button>
+                    <button class="btn-contact-seller" onclick="contactSeller('Crimson Banarasi')"><i class="fa-solid fa-comments"></i> Contact Seller</button>
+                </div>
+                <button class="btn-add-cart-full" onclick="addToCart('Crimson Banarasi')"><i class="fa-solid fa-bag-shopping"></i> Add to Bag</button>
+            </div>
+        </div>
+
+        <div class="product-card reveal-on-scroll" data-category="saree bridal" data-name="golden kanjeevaram" data-index="1">
+            <div class="product-image-container">
+                <img src="assets/product_gold.png" alt="Golden Kanjeevaram" class="product-image" loading="lazy">
+                <div class="product-badge">Exclusive</div>
+                <div class="product-hover-overlay"><button class="btn-card-quick" data-product="1"><i class="fa-solid fa-eye"></i> Quick View</button></div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">Golden Kanjeevaram</h3>
+                <div class="product-price-row">
+                    <p class="product-price">Rs. 1,48,000</p>
+                    <div class="product-stars">★★★★★</div>
+                </div>
+                <span class="product-category-tag">Kanchipuram Silk · Saree</span>
+                <div class="product-action-row">
+                    <button class="btn-check-avail" onclick="checkAvailability('Golden Kanjeevaram')"><i class="fa-solid fa-circle-check"></i> Check Availability</button>
+                    <button class="btn-contact-seller" onclick="contactSeller('Golden Kanjeevaram')"><i class="fa-solid fa-comments"></i> Contact Seller</button>
+                </div>
+                <button class="btn-add-cart-full" onclick="addToCart('Golden Kanjeevaram')"><i class="fa-solid fa-bag-shopping"></i> Add to Bag</button>
+            </div>
+        </div>
+
+        <div class="product-card reveal-on-scroll" data-category="saree" data-name="royal chanderi" data-index="2">
+            <div class="product-image-container">
+                <img src="assets/product_chanderi.png" alt="Royal Chanderi" class="product-image" loading="lazy">
+                <div class="product-hover-overlay"><button class="btn-card-quick" data-product="2"><i class="fa-solid fa-eye"></i> Quick View</button></div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">Royal Chanderi</h3>
+                <div class="product-price-row">
+                    <p class="product-price">Rs. 89,000</p>
+                    <div class="product-stars">★★★★☆</div>
+                </div>
+                <span class="product-category-tag">Chanderi Brocade · Saree</span>
+                <div class="product-action-row">
+                    <button class="btn-check-avail" onclick="checkAvailability('Royal Chanderi')"><i class="fa-solid fa-circle-check"></i> Check Availability</button>
+                    <button class="btn-contact-seller" onclick="contactSeller('Royal Chanderi')"><i class="fa-solid fa-comments"></i> Contact Seller</button>
+                </div>
+                <button class="btn-add-cart-full" onclick="addToCart('Royal Chanderi')"><i class="fa-solid fa-bag-shopping"></i> Add to Bag</button>
+            </div>
+        </div>
+
+        <div class="product-card reveal-on-scroll" data-category="saree party" data-name="black organza" data-index="3">
+            <div class="product-image-container">
+                <img src="assets/product_black.png" alt="Black Organza" class="product-image" loading="lazy">
+                <div class="product-badge">Modern Noir</div>
+                <div class="product-hover-overlay"><button class="btn-card-quick" data-product="3"><i class="fa-solid fa-eye"></i> Quick View</button></div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">Black Organza</h3>
+                <div class="product-price-row">
+                    <p class="product-price">Rs. 95,000</p>
+                    <div class="product-stars">★★★★★</div>
+                </div>
+                <span class="product-category-tag">Organza Silk · Saree</span>
+                <div class="product-action-row">
+                    <button class="btn-check-avail" onclick="checkAvailability('Black Organza')"><i class="fa-solid fa-circle-check"></i> Check Availability</button>
+                    <button class="btn-contact-seller" onclick="contactSeller('Black Organza')"><i class="fa-solid fa-comments"></i> Contact Seller</button>
+                </div>
+                <button class="btn-add-cart-full" onclick="addToCart('Black Organza')"><i class="fa-solid fa-bag-shopping"></i> Add to Bag</button>
+            </div>
+        </div>
+
+
+        <div class="no-results" id="noResults">
+            <i class="fa-solid fa-wind"></i>
+            <p>No products found</p>
+            <button onclick="resetFilters()">Clear Filters</button>
+        </div>
+    </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗
+     5. ABOUT / ARTISANS SECTION
+╚══════════════════════════════════════════╝ -->
+<section class="about-section" id="about">
+    <div class="about-container">
+        <div class="about-text reveal-on-scroll" data-origin="left">
+            <span class="about-subtitle">OUR PHILOSOPHY</span>
+            <h2 class="about-title">The Hands Behind the Gold Thread</h2>
+            <p class="about-desc">Vanya was born from a desire to bridge the fine line between heritage artistry and high-fashion modern silhouettes. We work directly with over 150 master weavers across Varanasi, Kanchipuram, and Chanderi.</p>
+            <p class="about-desc">Every thread is hand-spun, and every piece undergoes 45 days of craftsmanship. By choosing Vanya, you support sustainable handloom practices and help preserve a centuries-old cultural treasury.</p>
+            <div class="about-stats">
+                <div class="stat-item"><span class="stat-num">150+</span><span class="stat-label">Master Weavers</span></div>
+                <div class="stat-item"><span class="stat-num">45</span><span class="stat-label">Days per Piece</span></div>
+                <div class="stat-item"><span class="stat-num">3</span><span class="stat-label">Heritage Cities</span></div>
+            </div>
+            <div class="about-signature">
+                <span class="sig-name">Vanya Dev</span>
+                <span class="sig-title">Founder &amp; Creative Director</span>
+            </div>
+        </div>
+        <div class="about-image-container reveal-on-scroll" data-origin="right">
+            <div class="about-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?q=80&w=1200" alt="Artisan embroidering" class="about-image">
+                <div class="about-image-border"></div>
+                <div class="about-badge"><i class="fa-solid fa-award"></i><span>GI Certified<br>Artisans</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗
+     6. TESTIMONIALS
+╚══════════════════════════════════════════╝ -->
+<section class="testimonials-section" id="testimonials">
+    <div class="section-header">
+        <span class="subtitle">CUSTOMER STORIES</span>
+        <h2 class="title">Worn with Love</h2>
+        <div class="header-divider"></div>
+    </div>
+    <div class="testimonials-carousel">
+        <div class="testimonials-track" id="testimonialsTrack">
+            <div class="testimonial-card">
+                <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="testimonial-text">"The Crimson Banarasi I ordered for my daughter's wedding was breathtaking. The craftsmanship, the weight of the silk, the gold zari — nothing compares. VANYA is in a league of its own."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">PS</div>
+                    <div class="author-info"><span class="author-name">Priya Sharma</span><span class="author-city">Mumbai, Maharashtra</span></div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="testimonial-text">"I wore the Golden Kanjeevaram to my sister's reception. Every single guest asked me where it was from. The richness of the silk is unmatched. Worth every rupee!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">MN</div>
+                    <div class="author-info"><span class="author-name">Meera Nair</span><span class="author-city">Bangalore, Karnataka</span></div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="testimonial-text">"VANYA's white glove delivery and after-care guide made me feel like a true luxury customer. The Black Organza saree is everything I dreamed of for a formal gala."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AV</div>
+                    <div class="author-info"><span class="author-name">Anjali Verma</span><span class="author-city">New Delhi</span></div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star-half-stroke"></i></div>
+                <p class="testimonial-text">"I've been collecting handloom sarees for 20 years, and the Royal Chanderi from VANYA is the most exquisite piece in my collection. The brocade detailing is extraordinary."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">RK</div>
+                    <div class="author-info"><span class="author-name">Rashida Khan</span><span class="author-city">Hyderabad, Telangana</span></div>
+                </div>
+            </div>
+        </div>
+        <button class="testimonial-nav-btn prev-btn" id="testimonialPrev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="testimonial-nav-btn next-btn" id="testimonialNext" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="testimonial-dots" id="testimonialDots">
+            <span class="t-dot active"></span><span class="t-dot"></span><span class="t-dot"></span><span class="t-dot"></span>
+        </div>
+    </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗
+     7. CONTACT & LOCATION
+╚══════════════════════════════════════════╝ -->
+<section class="contact-section" id="contact">
+    <div class="section-header reveal-on-scroll">
+        <span class="subtitle">VISIT US</span>
+        <h2 class="title">Find VANYA</h2>
+        <div class="header-divider"></div>
+    </div>
+    <div class="contact-wrapper">
+        <div class="contact-info-panel reveal-on-scroll" data-origin="left">
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="contact-card-text">
+                    <h4>Our Boutique</h4>
+                    <p>24-B Janpath Market, Connaught Place<br>New Delhi — 110001</p>
+                    <a href="https://www.google.com/maps" target="_blank" class="maps-link">View on Google Maps <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                <div class="contact-card-text">
+                    <h4>Call / WhatsApp</h4>
+                    <a href="tel:+919876543210" class="contact-phone">+91 98765 43210</a>
+                    <a href="tel:+911123415678" class="contact-phone">+91 11 2341 5678</a>
+                </div>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fa-regular fa-envelope"></i></div>
+                <div class="contact-card-text">
+                    <h4>Email</h4>
+                    <a href="mailto:hello@vanyacouture.in" class="contact-phone">hello@vanyacouture.in</a>
+                </div>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon"><i class="fa-regular fa-clock"></i></div>
+                <div class="contact-card-text">
+                    <h4>Store Hours</h4>
+                    <p>Mon – Sat: <strong>10:00 AM – 8:00 PM</strong></p>
+                    <p>Sunday: <strong>11:00 AM – 6:00 PM</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="contact-map-panel reveal-on-scroll" data-origin="right">
+            <div class="map-placeholder">
+                <div class="map-bg-pattern"></div>
+                <div class="map-pin-anim">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div class="pin-pulse"></div>
+                </div>
+                <div class="map-info-card">
+                    <strong>VANYA Boutique</strong>
+                    <span>Connaught Place, New Delhi</span>
+                    <a href="https://www.google.com/maps" target="_blank" class="btn-maps">
+                        <i class="fa-brands fa-google"></i> Open in Google Maps
+                    </a>
+                </div>
+                <div class="map-whatsapp-cta">
+                    <a href="https://wa.me/919876543210" target="_blank" class="btn-whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗
+     8. DRAPING GUIDE
+╚══════════════════════════════════════════╝ -->
+<section class="draping-section" id="draping">
+    <div class="section-header reveal-on-scroll">
+        <span class="subtitle">THE ART OF DRAPING</span>
+        <h2 class="title">One Saree, Many Looks</h2>
+        <p class="draping-intro">Discover six timeless ways to drape your saree — from classic elegance to contemporary flair.</p>
+        <div class="header-divider"></div>
+    </div>
+    <div class="draping-img-grid">
+        <div class="draping-img-card reveal-on-scroll" data-drape="0"><div class="draping-img-wrapper"><img src="assets/product_crimson.png" alt="Crimson Banarasi" loading="lazy"><div class="draping-img-overlay"><span class="drape-style-num">01</span><h3 class="drape-style-name">Crimson Banarasi</h3><p class="drape-style-tag">Pure Silk Handloom</p><div class="drape-badges-row"><span class="drape-badge-occ">Banarasi</span><span class="drape-badge-lvl easy">Classic</span></div><button class="btn-drape-view"><i class="fa-solid fa-eye"></i> View Saree</button></div></div></div>
+        <div class="draping-img-card reveal-on-scroll" data-drape="1" style="animation-delay:.1s"><div class="draping-img-wrapper"><img src="assets/product_gold.png" alt="Golden Kanjeevaram" loading="lazy"><div class="draping-img-overlay"><span class="drape-style-num">02</span><h3 class="drape-style-name">Golden Kanjeevaram</h3><p class="drape-style-tag">Metallic Tissue Silk</p><div class="drape-badges-row"><span class="drape-badge-occ">Kanjeevaram</span><span class="drape-badge-lvl easy">Royal</span></div><button class="btn-drape-view"><i class="fa-solid fa-eye"></i> View Saree</button></div></div></div>
+        <div class="draping-img-card reveal-on-scroll" data-drape="2" style="animation-delay:.2s"><div class="draping-img-wrapper"><img src="assets/scroll_red.png" alt="Royal Red Silk" loading="lazy"><div class="draping-img-overlay"><span class="drape-style-num">03</span><h3 class="drape-style-name">Royal Red Silk</h3><p class="drape-style-tag">Bridal Heirloom</p><div class="drape-badges-row"><span class="drape-badge-occ">Bridal</span><span class="drape-badge-lvl medium">Exclusive</span></div><button class="btn-drape-view"><i class="fa-solid fa-eye"></i> View Saree</button></div></div></div>
+        <div class="draping-img-card reveal-on-scroll" data-drape="3" style="animation-delay:.3s"><div class="draping-img-wrapper"><img src="assets/product_black.png" alt="Black Organza" loading="lazy"><div class="draping-img-overlay"><span class="drape-style-num">04</span><h3 class="drape-style-name">Black Organza</h3><p class="drape-style-tag">Hand-Embroidered</p><div class="drape-badges-row"><span class="drape-badge-occ">Organza</span><span class="drape-badge-lvl hard">Modern Noir</span></div><button class="btn-drape-view"><i class="fa-solid fa-eye"></i> View Saree</button></div></div></div>
+        <div class="draping-img-card reveal-on-scroll" data-drape="4" style="animation-delay:.4s"><div class="draping-img-wrapper"><img src="assets/product_chanderi.png" alt="Maroon Chanderi" loading="lazy"><div class="draping-img-overlay"><span class="drape-style-num">05</span><h3 class="drape-style-name">Maroon Chanderi</h3><p class="drape-style-tag">Brocade Saree</p><div class="drape-badges-row"><span class="drape-badge-occ">Chanderi</span><span class="drape-badge-lvl medium">Heritage</span></div><button class="btn-drape-view"><i class="fa-solid fa-eye"></i> View Saree</button></div></div></div>
+        <div class="draping-img-card reveal-on-scroll" data-drape="5" style="animation-delay:.5s"><div class="draping-img-wrapper"><img src="assets/scroll_maroon.png" alt="Deep Maroon Classic" loading="lazy"><div class="draping-img-overlay"><span class="drape-style-num">06</span><h3 class="drape-style-name">Deep Maroon Classic</h3><p class="drape-style-tag">Minimalist Elegance</p><div class="drape-badges-row"><span class="drape-badge-occ">Silk</span><span class="drape-badge-lvl medium">Signature</span></div><button class="btn-drape-view"><i class="fa-solid fa-eye"></i> View Saree</button></div></div></div>
+    </div>
+</section>
+
+<!-- Draping Popup -->
+<div class="drape-popup-overlay" id="drapePopupOverlay">
+    <div class="drape-popup-modal">
+        <button class="drape-popup-close" id="drapePopupClose"><i class="fa-solid fa-xmark"></i></button>
+        <div class="drape-popup-body">
+            <div class="drape-popup-img-panel"><img src="" alt="" id="drapePopupImg"></div>
+            <div class="drape-popup-info-panel">
+                <span class="drape-popup-num" id="drapePopupNum"></span>
+                <h2 class="drape-popup-title" id="drapePopupTitle"></h2>
+                <p class="drape-popup-tagline" id="drapePopupTagline"></p>
+                <div class="drape-popup-meta" id="drapePopupMeta"></div>
+                <div class="drape-popup-divider"></div>
+                <h4 class="drape-steps-heading"><i class="fa-solid fa-list-ol"></i> Step-by-Step Guide</h4>
+                <ol class="drape-popup-steps" id="drapePopupSteps"></ol>
+                <div class="drape-popup-tip" id="drapePopupTip"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════╗
+     9. CTA SECTION
+╚══════════════════════════════════════════╝ -->
+<section class="cta-section">
+    <div class="cta-bg-overlay"></div>
+    <div class="cta-content">
+        <span class="cta-eyebrow">EMBARK ON THE JOURNEY</span>
+        <h2 class="cta-title">Discover Your Style</h2>
+        <p class="cta-desc">Explore the full range of artisanal sarees. Experience luxury, redefined.</p>
+        <a href="#showcase" class="btn-primary">View Entire Collection</a>
+    </div>
+</section>
+
+<!-- ╔══════════════════════════════════════════╗
+     10. FOOTER + NEWSLETTER
+╚══════════════════════════════════════════╝ -->
+<footer class="luxury-footer">
+    <div class="footer-newsletter">
+        <div class="newsletter-content">
+            <h3 class="newsletter-title">Join the Inner Circle</h3>
+            <p class="newsletter-desc">Exclusive previews, artisan stories &amp; curated collections — in your inbox.</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                <button type="submit" class="newsletter-btn">Subscribe <i class="fa-solid fa-arrow-right"></i></button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-grid">
+        <div class="footer-col brand-col">
+            <a href="#" class="footer-logo">VANYA</a>
+            <p class="footer-brand-desc">High-end luxury Indian fashion weaving together heritage traditions and contemporary sophistication.</p>
+            <div class="footer-socials">
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" aria-label="Youtube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://wa.me/919876543210" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4 class="footer-heading">Collections</h4>
+        <ul class="footer-links">
+                <li><a href="javascript:void(0)" onclick="showInfo('varanasi')">The Varanasi Royal</a></li>
+                <li><a href="javascript:void(0)" onclick="showInfo('kanchipuram')">Kanchipuram Silks</a></li>
+                <li><a href="javascript:void(0)" onclick="showInfo('organza')">Contemporary Organzas</a></li>
+                <li><a href="javascript:void(0)" onclick="showInfo('chanderi')">Chanderi Brocades</a></li>
+                <li><a href="javascript:void(0)" onclick="showInfo('bridal')">Bridal Couture</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4 class="footer-heading">The Maison</h4>
+            <ul class="footer-links">
+                <li><a href="#about">Our Story</a></li>
+                <li><a href="javascript:void(0)" onclick="showInfo('artisan')">Artisan Welfare</a></li>
+                <li><a href="javascript:void(0)" onclick="showInfo('craft')">Craftsmanship</a></li>
+                <li><a href="javascript:void(0)" onclick="showInfo('press')">Press &amp; Media</a></li>
+                <li><a href="javascript:void(0)" onclick="showInfo('careers')">Careers</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4 class="footer-heading">Customer Care</h4>
+            <ul class="footer-links">
+                <li><a href="#contact">Visit Our Store</a></li>
+                <li><a href="javascript:void(0)" onclick="showInfo('shipping')">Shipping &amp; Returns</a></li>
+                <li><a href="javascript:void(0)" onclick="showInfo('sizing')">Sizing &amp; Care Guide</a></li>
+                <li><a href="javascript:void(0)" onclick="showInfo('faq')">FAQ</a></li>
+                <li><a href="https://wa.me/919876543210" target="_blank">Live Chat (WhatsApp)</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 VANYA Haute Couture. All Rights Reserved. Designed for elegance.</p>
+        <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms &amp; Conditions</a>
+            <a href="#">Cookie Policy</a>
+        </div>
+    </div>
+</footer>
+
+<!-- ╔══════════════════════════════════════════╗
+     QUICK VIEW MODAL
+╚══════════════════════════════════════════╝ -->
+<div class="quickview-overlay" id="quickviewOverlay">
+    <div class="quickview-modal">
+        <button class="quickview-close" id="quickviewClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+        <div class="quickview-grid">
+            <div class="quickview-gallery">
+                <div class="quickview-main-image"><img src="" alt="" id="quickviewMainImg"></div>
+                <div class="quickview-thumbnails" id="quickviewThumbs"></div>
+            </div>
+            <div class="quickview-info">
+                <span class="quickview-badge"    id="quickviewBadge"></span>
+                <span class="quickview-category" id="quickviewCategory"></span>
+                <h2 class="quickview-title"  id="quickviewTitle"></h2>
+                <p  class="quickview-price"  id="quickviewPrice"></p>
+                <div class="quickview-divider"></div>
+                <p  class="quickview-desc"   id="quickviewDesc"></p>
+                <div class="quickview-features">
+                    <div class="feature-item"><i class="fa-solid fa-hand-sparkles"></i><span>Master Woven — 45 Days Craftsmanship</span></div>
+                    <div class="feature-item"><i class="fa-solid fa-leaf"></i><span>100% Pure Silk — GI Tagged</span></div>
+                    <div class="feature-item"><i class="fa-solid fa-truck"></i><span>Free Shipping &amp; White-Glove Delivery</span></div>
+                    <div class="feature-item"><i class="fa-solid fa-rotate-left"></i><span>15-Day Easy Returns</span></div>
+                </div>
+                <div class="quickview-actions">
+                    <button class="btn-wishlist" id="quickviewWishlist"><i class="fa-regular fa-heart"></i> Wishlist</button>
+                    <button class="btn-qv-avail" id="quickviewAvail"><i class="fa-solid fa-circle-check"></i> Check Availability</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════╗
+     FLOATING CHAT WIDGET
+╚══════════════════════════════════════════╝ -->
+
+
+<!-- INFO POPUP MODAL -->
+<div id="infoModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:9999; align-items:center; justify-content:center;">
+    <div style="background:#1a0508; border:1px solid rgba(194,158,92,0.4); border-radius:16px; max-width:520px; width:90%; padding:40px 36px; position:relative; animation:fadeInUp 0.3s ease;">
+        <button onclick="closeInfoModal()" style="position:absolute;top:16px;right:20px;background:none;border:none;color:#c29e5c;font-size:1.4rem;cursor:pointer;">✕</button>
+        <div id="infoModalIcon" style="font-size:2.5rem; margin-bottom:16px; text-align:center;"></div>
+        <h3 id="infoModalTitle" style="color:#c29e5c; font-family:'Cormorant Garamond',serif; font-size:1.8rem; margin-bottom:12px; text-align:center;"></h3>
+        <p id="infoModalBody" style="color:#d4b896; font-family:'Cormorant Garamond',serif; font-size:1.05rem; line-height:1.8; text-align:center;"></p>
+        <div id="infoModalExtra" style="margin-top:20px; display:flex; flex-wrap:wrap; gap:10px; justify-content:center;"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+<script>
+// ── INFO MODAL ─────────────────────────────────────────
+const infoData = {
+    varanasi:   { icon:'🏛️', title:'The Varanasi Royal', body:'Our flagship Banarasi collection — handwoven by master weavers of Varanasi using pure Katan silk and real gold-silver zari. Each saree takes 15–60 days to craft, making it a true heirloom piece passed across generations.', tags:['Pure Katan Silk','Gold Zari','Heritage Weave','GI Tagged'] },
+    kanchipuram:{ icon:'🌸', title:'Kanchipuram Silks', body:'Woven in the temple town of Kanchipuram, Tamil Nadu. Known for their lustrous mulberry silk threads and contrasting borders interlocked separately. Ideal for weddings and religious ceremonies.', tags:['Mulberry Silk','Temple Borders','Wedding Essential','75 GSM Weight'] },
+    organza:    { icon:'✨', title:'Contemporary Organzas', body:'Ultra-sheer, lightweight organza sarees with hand-embroidered motifs. Perfect for cocktail events, receptions and modern fusion looks. Available with digital prints and traditional threadwork.', tags:['Sheer Fabric','Hand Embroidery','Party Wear','Lightweight'] },
+    chanderi:   { icon:'🌿', title:'Chanderi Brocades', body:'Handwoven in Chanderi, Madhya Pradesh — a blend of silk, cotton and zari. Known for the translucency and traditional motifs like coins, florals and peacocks. Light yet regal.', tags:['Silk-Cotton Blend','Madhya Pradesh','Floral Motifs','Daytime Elegance'] },
+    bridal:     { icon:'👰', title:'Bridal Couture', body:'Our bespoke bridal collection. Every bridal saree is custom-crafted with your choice of fabric, colour, embroidery and embellishments. Appointments required. Minimum 45-day lead time.', tags:['Bespoke Only','By Appointment','45 Day Lead','Heirloom Quality'] },
+    artisan:    { icon:'🤝', title:'Artisan Welfare', body:'VANYA works directly with 150+ master weavers across India, ensuring fair wages, health benefits and craft training programs. We believe luxury must be ethical. By choosing VANYA, you directly support artisan families.', tags:['Fair Wages','150+ Weavers','Ethical Luxury','GI Certified'] },
+    craft:      { icon:'🧵', title:'Our Craftsmanship', body:'Every VANYA saree undergoes 45 days of handcrafting — from yarn selection and dyeing to weaving and finishing. No shortcuts, no compromises. Authenticity and perfection are guaranteed in every thread.', tags:['45 Days Process','Hand Woven','Zero Shortcuts','100% Authentic'] },
+    press:      { icon:'📰', title:'Press & Media', body:'VANYA has been featured in Vogue India, Elle, Harper\'s Bazaar and NDTV. For press queries, interviews or media collaborations, please contact us at press@vanya.com or call +91 98765 43210.', tags:['Vogue India','Elle Magazine','Media Queries','press@vanya.com'] },
+    careers:    { icon:'💼', title:'Careers at VANYA', body:'We are looking for passionate individuals who love heritage fashion. Open roles: Textile Designer, Weaving Supervisor, Digital Marketing Lead, and Brand Stylist. Send your portfolio to careers@vanya.com.', tags:['Textile Design','Marketing','Brand Styling','careers@vanya.com'] },
+    shipping:   { icon:'🚚', title:'Shipping & Returns', body:'Free shipping across India on all orders. International shipping available to 40+ countries. Easy 15-day return policy — if you\'re not satisfied, we\'ll arrange a free pickup. Orders are packed in signature VANYA boxes.', tags:['Free Shipping India','15-Day Returns','40+ Countries','Premium Packaging'] },
+    sizing:     { icon:'📏', title:'Sizing & Care Guide', body:'All sarees are standard 6.3 metres with 0.8m blouse piece. Dry clean recommended for silk. Store in muslin cloth, away from moisture. For Banarasi, use neem leaves to protect the zari. Avoid direct sunlight storage.', tags:['6.3 Metres','Blouse Included','Dry Clean Only','Store in Muslin'] },
+    faq:        { icon:'❓', title:'Frequently Asked Questions', body:'Q: Are all sarees handwoven? Yes, 100%.\nQ: Do you offer customisation? Yes, for bridal orders.\nQ: How long does shipping take? 3-7 business days across India.\nQ: Can I visit the store? Yes! New Delhi boutique is open Mon-Sat, 10am–7pm.\nQ: Do you ship internationally? Yes, to 40+ countries.', tags:['100% Handwoven','Custom Orders','3-7 Days Delivery','Store Open Mon-Sat'] },
+};
+
+function showInfo(key) {
+    const d = infoData[key];
+    if (!d) return;
+    document.getElementById('infoModalIcon').textContent = d.icon;
+    document.getElementById('infoModalTitle').textContent = d.title;
+    document.getElementById('infoModalBody').textContent = d.body;
+    const extra = document.getElementById('infoModalExtra');
+    extra.innerHTML = d.tags.map(t => `<span style="background:rgba(194,158,92,0.15);border:1px solid rgba(194,158,92,0.3);color:#c29e5c;padding:4px 14px;border-radius:20px;font-size:0.8rem;font-family:'Cormorant Garamond',serif;">${t}</span>`).join('');
+    const modal = document.getElementById('infoModal');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    return false;
+}
+
+function closeInfoModal() {
+    document.getElementById('infoModal').style.display = 'none';
+    document.body.style.overflow = '';
+}
+document.getElementById('infoModal').addEventListener('click', function(e) {
+    if (e.target === this) closeInfoModal();
+});
+
+// ── TESTIMONIALS AUTO-PLAY ─────────────────────────────
+(function() {
+    const track = document.getElementById('testimonialsTrack');
+    const prevBtn = document.getElementById('testimonialPrev');
+    const nextBtn = document.getElementById('testimonialNext');
+    const dotsContainer = document.getElementById('testimonialDots');
+    if (!track) return;
+
+    const cards = track.querySelectorAll('.testimonial-card');
+    const dots = dotsContainer ? dotsContainer.querySelectorAll('.t-dot') : [];
+    let current = 0;
+    let autoTimer = null;
+
+    function goTo(index) {
+        cards.forEach((c, i) => {
+            c.style.opacity = '0';
+            c.style.transform = 'translateY(20px)';
+            c.style.pointerEvents = 'none';
+            c.style.position = 'absolute';
+        });
+        dots.forEach(d => d.classList.remove('active'));
+
+        current = (index + cards.length) % cards.length;
+        cards[current].style.opacity = '1';
+        cards[current].style.transform = 'translateY(0)';
+        cards[current].style.pointerEvents = 'auto';
+        cards[current].style.position = 'relative';
+        if (dots[current]) dots[current].classList.add('active');
+    }
+
+    // Init styles
+    cards.forEach((c, i) => {
+        c.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        if (i !== 0) {
+            c.style.opacity = '0';
+            c.style.transform = 'translateY(20px)';
+            c.style.pointerEvents = 'none';
+            c.style.position = 'absolute';
+            c.style.top = '0'; c.style.left = '0'; c.style.width = '100%';
+        }
+    });
+    if (track) track.style.position = 'relative';
+    if (dots[0]) dots[0].classList.add('active');
+
+    function startAuto() {
+        autoTimer = setInterval(() => goTo(current + 1), 3500);
+    }
+    function resetAuto() {
+        clearInterval(autoTimer);
+        startAuto();
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+    dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); resetAuto(); }));
+
+    startAuto();
+})();
+</script>
+<!-- ❤️ HEART THANK YOU POPUP -->
+<div id="heartPopup" style="display:none; position:fixed; top:80px; right:24px; z-index:9998; background:linear-gradient(135deg,#3f0a11,#5c1020); border:1px solid rgba(194,158,92,0.5); border-radius:16px; padding:24px 28px; max-width:300px; text-align:center; box-shadow:0 20px 60px rgba(0,0,0,0.5); animation:fadeInDown 0.4s ease;">
+    <div style="font-size:2.8rem; animation:heartBeat 0.6s ease; display:inline-block;">❤️</div>
+    <h3 style="color:#c29e5c; font-family:'Cormorant Garamond',serif; font-size:1.4rem; margin:10px 0 6px;">Thank You!</h3>
+    <p style="color:#d4b896; font-family:'Cormorant Garamond',serif; font-size:1rem; line-height:1.6; margin:0;">Aapka VANYA par swagat hai! 🙏<br>Hamare sarees ki duniya mein khush aamdeed.</p>
+    <p style="color:#c29e5c; font-size:0.85rem; margin-top:10px; font-family:'Cormorant Garamond',serif;">Your visit means everything to us ✨</p>
+</div>
+
+<!-- 💬 MESSAGE BOX POPUP -->
+<div id="msgBoxPanel" style="display:none; position:fixed; bottom:24px; right:24px; z-index:9998; background:#1a0508; border:1px solid rgba(194,158,92,0.4); border-radius:16px; width:340px; box-shadow:0 20px 60px rgba(0,0,0,0.6); overflow:hidden;">
+    <!-- Header -->
+    <div style="background:linear-gradient(135deg,#3f0a11,#5c1020); padding:16px 20px; display:flex; justify-content:space-between; align-items:center;">
+        <div>
+            <div style="color:#c29e5c; font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:600;">💬 VANYA Support</div>
+            <div style="color:#d4b896; font-size:0.78rem;">🟢 Online — Replies Instantly</div>
+        </div>
+        <button onclick="toggleMsgBoxClose()" style="background:none; border:none; color:#c29e5c; font-size:1.3rem; cursor:pointer;">✕</button>
+    </div>
+    <!-- Messages area -->
+    <div id="msgAreaMessages" style="height:180px; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; background:#120304;">
+        <div style="background:rgba(194,158,92,0.1); border-left:3px solid #c29e5c; padding:10px 14px; border-radius:8px; color:#d4b896; font-family:'Cormorant Garamond',serif; font-size:0.95rem;">
+            Namaste! 🙏 Main aapki kaise madad kar sakti hoon?
+        </div>
+    </div>
+    <!-- Quick replies -->
+    <div style="padding:12px 14px; display:flex; flex-wrap:wrap; gap:8px; background:#1a0508; border-top:1px solid rgba(194,158,92,0.15);">
+        <button onclick="sendMsgQuick('Mujhe is type ki saree chahiye')" style="background:rgba(194,158,92,0.12); border:1px solid rgba(194,158,92,0.35); color:#c29e5c; padding:6px 12px; border-radius:20px; font-size:0.78rem; cursor:pointer; font-family:'Cormorant Garamond',serif;">🛍️ Mujhe yeh saree chahiye</button>
+        <button onclick="sendMsgQuick('Kya yeh saree available hai?')" style="background:rgba(194,158,92,0.12); border:1px solid rgba(194,158,92,0.35); color:#c29e5c; padding:6px 12px; border-radius:20px; font-size:0.78rem; cursor:pointer; font-family:'Cormorant Garamond',serif;">✅ Availability check karein</button>
+        <button onclick="sendMsgQuick('Price kya hai is saree ki?')" style="background:rgba(194,158,92,0.12); border:1px solid rgba(194,158,92,0.35); color:#c29e5c; padding:6px 12px; border-radius:20px; font-size:0.78rem; cursor:pointer; font-family:'Cormorant Garamond',serif;">💰 Price poochna hai</button>
+        <button onclick="sendMsgQuick('Delivery kitne din mein hogi?')" style="background:rgba(194,158,92,0.12); border:1px solid rgba(194,158,92,0.35); color:#c29e5c; padding:6px 12px; border-radius:20px; font-size:0.78rem; cursor:pointer; font-family:'Cormorant Garamond',serif;">🚚 Delivery info chahiye</button>
+    </div>
+    <!-- Input area -->
+    <div style="padding:12px 14px; display:flex; gap:8px; background:#1a0508; border-top:1px solid rgba(194,158,92,0.15);">
+        <input id="msgBoxInput" type="text" placeholder="Apna message likhein..." onkeydown="if(event.key==='Enter') sendMsgText()"
+            style="flex:1; background:rgba(255,255,255,0.05); border:1px solid rgba(194,158,92,0.3); border-radius:24px; padding:10px 16px; color:#fff; font-family:'Cormorant Garamond',serif; font-size:0.95rem; outline:none;">
+        <button onclick="sendMsgText()" style="background:linear-gradient(135deg,#c29e5c,#a07840); border:none; border-radius:50%; width:40px; height:40px; cursor:pointer; color:#fff; font-size:1rem; display:flex; align-items:center; justify-content:center; flex-shrink:0;">➤</button>
+    </div>
+</div>
+
+<style>
+@keyframes heartBeat { 0%{transform:scale(1)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+@keyframes fadeInDown { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeInUp   { from{opacity:0;transform:translateY(16px)}  to{opacity:1;transform:translateY(0)} }
+</style>
+
+<script>
+// ── HEART POPUP ──────────────────────────────────────────
+let heartLiked = false;
+function showHeartPopup(e) {
+    e.preventDefault();
+    heartLiked = !heartLiked;
+    const icon = document.getElementById('heartIcon');
+    if (heartLiked) {
+        icon.className = 'fa-solid fa-heart';
+        icon.style.color = '#e05c7a';
+    } else {
+        icon.className = 'fa-regular fa-heart';
+        icon.style.color = '';
+    }
+    const popup = document.getElementById('heartPopup');
+    popup.style.display = 'block';
+    clearTimeout(window._heartTimer);
+    window._heartTimer = setTimeout(() => { popup.style.display = 'none'; }, 3500);
+}
+
+// ── MESSAGE BOX ──────────────────────────────────────────
+function toggleMsgBox(e) {
+    e.preventDefault();
+    const panel = document.getElementById('msgBoxPanel');
+    const isOpen = panel.style.display === 'block';
+    panel.style.display = isOpen ? 'none' : 'block';
+    if (!isOpen) {
+        setTimeout(() => document.getElementById('msgBoxInput').focus(), 200);
+    }
+}
+function toggleMsgBoxClose() {
+    document.getElementById('msgBoxPanel').style.display = 'none';
+}
+
+const autoReplies = [
+    'Bilkul! Hum aapke liye best saree dhundhenge. 🌸',
+    'Hamaari team se 24 ghante mein contact karein: +91 98765 43210',
+    'Is saree ki stock limited hai — jaldi order karein! ✨',
+    'Hum aapko WhatsApp par bhi help kar sakte hain 😊'
+];
+let autoReplyIdx = 0;
+
+function appendMsgBubble(text, isUser) {
+    const area = document.getElementById('msgAreaMessages');
+    const div = document.createElement('div');
+    div.style.cssText = isUser
+        ? 'background:rgba(194,158,92,0.2);border-right:3px solid #c29e5c;padding:10px 14px;border-radius:8px;color:#fff;font-family:Cormorant Garamond,serif;font-size:0.92rem;align-self:flex-end;max-width:90%;'
+        : 'background:rgba(194,158,92,0.08);border-left:3px solid #c29e5c;padding:10px 14px;border-radius:8px;color:#d4b896;font-family:Cormorant Garamond,serif;font-size:0.92rem;max-width:90%;';
+    div.textContent = text;
+    area.appendChild(div);
+    area.scrollTop = area.scrollHeight;
+}
+
+function sendMsgQuick(text) {
+    appendMsgBubble(text, true);
+    setTimeout(() => {
+        appendMsgBubble(autoReplies[autoReplyIdx % autoReplies.length], false);
+        autoReplyIdx++;
+    }, 900);
+}
+
+function sendMsgText() {
+    const input = document.getElementById('msgBoxInput');
+    const text = input.value.trim();
+    if (!text) return;
+    input.value = '';
+    appendMsgBubble(text, true);
+    setTimeout(() => {
+        appendMsgBubble(autoReplies[autoReplyIdx % autoReplies.length], false);
+        autoReplyIdx++;
+    }, 900);
+}
+</script>
+</body>
+</html>
