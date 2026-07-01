@@ -20,6 +20,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const parallaxSection = document.getElementById('parallax');
     const parallaxBg = document.querySelector('.parallax-bg-image');
 
+    // ============================================
+    // MOBILE MENU TOGGLE
+    // ============================================
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const headerNav     = document.getElementById('headerNav');
+
+    if (mobileMenuBtn && headerNav) {
+        // Toggle open/close on hamburger click
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = headerNav.classList.toggle('nav-open');
+            mobileMenuBtn.classList.toggle('open', isOpen);
+            mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close nav when any nav link is clicked (smooth scroll to section)
+        headerNav.querySelectorAll('.nav-item').forEach(link => {
+            link.addEventListener('click', () => {
+                headerNav.classList.remove('nav-open');
+                mobileMenuBtn.classList.remove('open');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Close nav when clicking outside the header
+        document.addEventListener('click', (e) => {
+            if (!header.contains(e.target)) {
+                headerNav.classList.remove('nav-open');
+                mobileMenuBtn.classList.remove('open');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+
     // --- State Variables ---
     let windowHeight = window.innerHeight;
     let storyTop = 0;
