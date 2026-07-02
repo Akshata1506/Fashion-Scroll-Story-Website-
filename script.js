@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const isOpen = headerNav.classList.toggle('nav-open');
             mobileMenuBtn.classList.toggle('open', isOpen);
             mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+            header.classList.toggle('menu-open', isOpen);
         });
 
         // Close nav when any nav link is clicked (smooth scroll to section)
@@ -40,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 headerNav.classList.remove('nav-open');
                 mobileMenuBtn.classList.remove('open');
                 mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                header.classList.remove('menu-open');
             });
         });
 
@@ -49,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 headerNav.classList.remove('nav-open');
                 mobileMenuBtn.classList.remove('open');
                 mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                header.classList.remove('menu-open');
             }
         });
     }
