@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let storyTop = 0;
     let storyHeight = 0;
     let isTicking = false;
+    let currentStoryIndex = -1;
 
     // --- Measure Layout Dimensions ---
     function measureLayout() {
@@ -127,14 +128,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 activeIndex = 3;
             }
 
-            // Sync visual states (images, texts, indicators)
-            updateStoryStep(activeIndex);
+            // Sync visual states (images, texts, indicators) only on change
+            if (activeIndex !== currentStoryIndex) {
+                currentStoryIndex = activeIndex;
+                updateStoryStep(activeIndex);
+            }
         } else if (scrollStory && scrollY < storyTop) {
             // Hard reset to step 0 when above the section
-            updateStoryStep(0);
+            if (currentStoryIndex !== 0) {
+                currentStoryIndex = 0;
+                updateStoryStep(0);
+            }
         } else if (scrollStory && scrollY > (storyTop + storyHeight)) {
             // Hard reset to step 3 when below the section
-            updateStoryStep(3);
+            if (currentStoryIndex !== 3) {
+                currentStoryIndex = 3;
+                updateStoryStep(3);
+            }
         }
 
         // 4. Parallax Section Translation
