@@ -496,7 +496,7 @@ ul { list-style: none; }
     position: absolute; inset: 0;
     width: 100%; height: 100%;
     object-fit: contain; object-position: center;
-    padding: 60px;
+    padding: 130px;
     opacity: 0;
     transform: scale(1.04);
     transition: opacity .8s var(--ease), transform .8s var(--ease);
@@ -504,9 +504,7 @@ ul { list-style: none; }
 .story-image.active { opacity: 1; transform: scale(1); }
 
 .image-border-decoration {
-    position: absolute; inset: 24px;
-    border: 1px solid rgba(194,158,92,.3);
-    z-index: 2; pointer-events: none;
+    display: none;
 }
 .luxury-seal {
     position: absolute; bottom: 40px; right: 40px;
@@ -515,10 +513,7 @@ ul { list-style: none; }
     z-index: 3;
 }
 .story-dots {
-    position: absolute; top: 50%; right: 32px;
-    transform: translateY(-50%);
-    display: flex; flex-direction: column; gap: 12px;
-    z-index: 3;
+    display: none;
 }
 .dot {
     width: 32px; height: 32px;
@@ -954,39 +949,126 @@ ul { list-style: none; }
 .contact-card:first-child { border-top: 1px solid var(--border); }
 
 .contact-icon {
-    width: 44px; height: 44px;
+    width: 54px; height: 54px;
     background: var(--maroon);
     color: var(--gold);
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: .95rem; flex-shrink: 0;
+    font-size: 1.2rem; flex-shrink: 0;
     margin-top: 2px;
 }
 .contact-card-text h4 {
     font-family: var(--serif);
-    font-size: 1.05rem; font-weight: 500;
+    font-size: 1.3rem; font-weight: 500;
     color: var(--maroon-dark);
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 .contact-card-text p {
-    font-size: .82rem; line-height: 1.7;
+    font-size: 0.95rem; line-height: 1.7;
     color: var(--text-mid);
 }
 .contact-phone {
     display: block;
-    font-size: .85rem; font-weight: 600;
+    font-size: 1.05rem; font-weight: 600;
     color: var(--maroon);
     transition: color .25s;
-    margin-bottom: 3px;
+    margin-bottom: 6px;
 }
 .contact-phone:hover { color: var(--gold-dark); }
 .maps-link {
     display: inline-flex; align-items: center; gap: 6px;
-    font-size: .72rem; font-weight: 600;
+    font-size: 0.85rem; font-weight: 600;
     letter-spacing: .08em; text-transform: uppercase;
     color: var(--gold-dark);
-    margin-top: 8px;
+    margin-top: 10px;
     transition: gap .25s;
+}
+
+/* Contact Actions and Pad */
+.contact-actions-container {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+    position: relative;
+}
+.contact-action-btn {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(194, 158, 92, 0.1);
+    border: 1px solid rgba(194, 158, 92, 0.35);
+    color: var(--maroon);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.15rem;
+    transition: all 0.3s var(--ease);
+    outline: none;
+}
+.contact-action-btn:hover {
+    background: var(--maroon);
+    color: var(--gold);
+    border-color: var(--maroon);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(63, 10, 17, 0.15);
+}
+.contact-pad-popup {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 14px);
+    left: 0;
+    z-index: 100;
+    width: 280px;
+    background: var(--maroon-dark);
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    animation: fadeInUp 0.3s var(--ease);
+}
+.contact-pad-popup.active {
+    display: block;
+}
+.contact-pad-arrow {
+    position: absolute;
+    bottom: -6px;
+    left: 20px;
+    width: 10px;
+    height: 10px;
+    background: var(--maroon-dark);
+    border-right: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    transform: rotate(45deg);
+}
+.contact-pad-header {
+    font-family: var(--serif);
+    color: var(--gold);
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(194, 158, 92, 0.25);
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.contact-pad-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--cream);
+    font-size: 0.95rem;
+    padding: 10px 0;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.contact-pad-item:hover {
+    color: var(--gold-light);
+}
+.contact-pad-item i {
+    color: var(--gold);
+    font-size: 1.1rem;
 }
 .maps-link:hover { gap: 10px; }
 
@@ -1263,16 +1345,33 @@ ul { list-style: none; }
     font-size: .8rem; line-height: 1.8;
     color: rgba(252,250,247,.45); margin-bottom: 28px;
 }
-.footer-socials { display: flex; gap: 10px; }
+.footer-socials { display: flex; gap: 12px; }
 .footer-socials a {
-    width: 36px; height: 36px;
+    width: 42px; height: 42px;
     border-radius: 50%;
-    border: 1px solid rgba(252,250,247,.1);
+    border: 1px solid rgba(252,250,247,.15);
     display: flex; align-items: center; justify-content: center;
-    color: rgba(252,250,247,.45); font-size: .85rem;
+    font-size: 1rem;
     transition: var(--tr);
+    color: rgba(252,250,247,.5);
 }
-.footer-socials a:hover { background: var(--gold); border-color: var(--gold); color: var(--maroon-dark); }
+
+/* Instagram - hover: gradient pink/purple */
+.footer-socials a[aria-label="Instagram"]:hover {
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+    border-color: transparent; color: #fff;
+}
+
+/* Pinterest - hover: red */
+.footer-socials a[aria-label="Pinterest"]:hover { background: #E60023; border-color: #E60023; color: #fff; }
+
+/* Facebook - hover: blue */
+.footer-socials a[aria-label="Facebook"]:hover { background: #1877F2; border-color: #1877F2; color: #fff; }
+
+/* YouTube - hover: red */
+.footer-socials a[aria-label="Youtube"]:hover { background: #FF0000; border-color: #FF0000; color: #fff; }
+
+/* WhatsApp - hover: green */
 .footer-socials a[aria-label="WhatsApp"]:hover { background: #25D366; border-color: #25D366; color: #fff; }
 
 .footer-heading {
@@ -1670,9 +1769,10 @@ ul { list-style: none; }
     /* Story images bigger on mobile */
     .story-image-pane { height: 65vw !important; }
     .story-image {
-        width: 90% !important;
-        max-width: 340px !important;
+        width: 75% !important;
+        max-width: 250px !important;
         margin: 0 auto;
+        padding: 30px !important;
     }
 
     /* Quickview modal image fix on mobile */

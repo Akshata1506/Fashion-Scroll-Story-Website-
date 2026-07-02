@@ -6,6 +6,8 @@ import ScrollStorySection from './components/ScrollStorySection'
 import ParallaxSection from './components/ParallaxSection'
 import ProductShowcase from './components/ProductShowcase'
 import AboutSection from './components/AboutSection'
+import TestimonialsSection from './components/TestimonialsSection'
+import ContactSection from './components/ContactSection'
 import DrapingSection from './components/DrapingSection'
 import CTASection from './components/CTASection'
 import Footer from './components/Footer'
@@ -117,6 +119,8 @@ function App() {
       />
       <ProductShowcase onQuickView={setQuickViewProduct} />
       <AboutSection />
+      <TestimonialsSection />
+      <ContactSection />
       <DrapingSection onViewSteps={setDrapePopupIndex} />
       <CTASection />
       <Footer />
